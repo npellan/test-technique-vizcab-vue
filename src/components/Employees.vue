@@ -1,15 +1,18 @@
 <template>
-    <div>
-        <h1>My Employees</h1>
-        <div class="employees">
-            <div class="employee" v-for="employee in employees" :key="employee.id">
-                <h2 class="employee__name">{{employee.name}}</h2>
-                <p class="employee__job">{{employee.job_title}}</p>
-                <p class="employee__department">in {{employee.department}} department</p>
-                <p class="employee__company">@ {{employee.company_name}}</p>
-            </div>
-        </div>
+  <div>
+    <h1>My Employees</h1>
+    <div class="loading" v-if="loading">
+      Loading
     </div>
+    <div class="employees" v-else>
+      <div class="employee"  v-for="employee in employees" :key="employee.id">
+      <h2 class="employee__name">{{employee.name}}</h2>
+      <p class="employee__job">{{employee.job_title}}</p>
+      <p class="employee__department">in {{employee.department}} department</p>
+      <p class="employee__company">@ {{employee.company_name}}</p>
+    </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -17,7 +20,8 @@ export default {
   name: "Employees",
   data() {
     return {
-      employees: []
+      employees: [],
+      loading: true,
     }
   },
   beforeMount(){
@@ -25,9 +29,11 @@ export default {
   },
   methods: {
     async fetchEmployees(){
+      this.loading = true;
       const res = await fetch('https://my.api.mockaroo.com/employee.json?key=53b1b110');
       const data = await res.json();
       this.employees = data;
+      this.loading = false;
     }
   }
 };
@@ -79,6 +85,15 @@ export default {
 
 .employee__company {
   text-transform: uppercase;
+}
+
+.loading {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 </style>
