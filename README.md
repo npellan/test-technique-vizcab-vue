@@ -1,4 +1,7 @@
-# test-technique-vizcab-vue
+# Test technique Vizcab avec Vue.js
+
+In order to learn Vue.js, I decided to recode an interview test I did with React but this time with Vue.
+See the React project [here](https://github.com/npellan/test-technique-vizcab)
 
 ## Project setup
 ```
