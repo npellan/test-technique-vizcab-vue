@@ -1,5 +1,8 @@
 <template>
-  <Employees />
+  <div id="app">
+    <h1>My Employees</h1>
+    <Employees />
+  </div>
 </template>
 
 <script>

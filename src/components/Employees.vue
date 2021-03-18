@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>My Employees</h1>
     <div class="loading" v-if="loading">
       Loading
     </div>
