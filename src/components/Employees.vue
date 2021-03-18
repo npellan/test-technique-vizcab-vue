@@ -5,11 +5,11 @@
     </div>
     <div class="employees" v-else>
       <div class="employee"  v-for="employee in employees" :key="employee.id">
-      <h2 class="employee__name">{{employee.name}}</h2>
-      <p class="employee__job">{{employee.job_title}}</p>
-      <p class="employee__department">in {{employee.department}} department</p>
-      <p class="employee__company">@ {{employee.company_name}}</p>
-    </div>
+        <h2 class="employee__name">{{employee.name}}</h2>
+        <p class="employee__job">{{employee.job_title}}</p>
+        <p class="employee__department">in {{employee.department}} department</p>
+        <p class="employee__company">@ {{employee.company_name}}</p>
+      </div>
     </div>
   </div>
 </template>
