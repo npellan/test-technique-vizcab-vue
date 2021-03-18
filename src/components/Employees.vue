@@ -4,19 +4,23 @@
       Loading
     </div>
     <div class="employees" v-else>
-      <div class="employee"  v-for="employee in employees" :key="employee.id">
-        <h2 class="employee__name">{{employee.name}}</h2>
-        <p class="employee__job">{{employee.job_title}}</p>
-        <p class="employee__department">in {{employee.department}} department</p>
-        <p class="employee__company">@ {{employee.company_name}}</p>
-      </div>
+      <Employee
+        v-for="employee in employees" 
+        :key="employee.id"
+        :employee="employee"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import Employee from './Employee.vue'
+
 export default {
-  name: "Employees",
+  name: 'Employees',
+  components: {
+    Employee
+  },
   data() {
     return {
       employees: [],
@@ -45,45 +49,6 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 3rem;
-}
-
-.employee {
-  width: 40%;
-  border-radius: 5px;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: #ecf0f1;
-}
-
-@media screen and (max-width: 450px) {
-  .employee {
-    width: 100%;
-  }
-}
-
-.employee:hover {
-  transform: scale(1.05);
-  transition: .2s ease-in-out;
-}
-
-.employee__name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: .5rem;
-}
-
-.employee__job {
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-bottom: .5rem;
-}
-
-.employee__department {
-  margin-bottom: .5rem;
-}
-
-.employee__company {
-  text-transform: uppercase;
 }
 
 .loading {
